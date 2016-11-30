@@ -1,0 +1,5 @@
+@(
+	String jsPath,
+	String jsName
+)
+<script src="${_play.ctxPath}/public/javascripts/${jsPath==null || "".equals(jsPath) ? "" : (jsPath+"/")}${jsName}.js"></script>

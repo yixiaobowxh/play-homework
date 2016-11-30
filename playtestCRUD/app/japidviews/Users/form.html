@@ -1,0 +1,17 @@
+@extends main
+@set title:"思信科技：培训用例：用户管理" 
+@set js 
+@
+@(User user)
+<h2>用户-表单</h2>
+
+<form action="@{save()}">
+	<input type="hidden" name="user.id" value="${user.id}" >
+	<h3>账号：<input name="user.acc" value="${user.acc}" ></h3>
+	<h3>密码：<input name="user.pwd"  value="${user.pwd}"></h3>
+	<h3>姓名：<input name="user.name" value="${user.name}"></h3>
+	<h3>性别：<input name="user.sex" value="1" type="radio" ${user.sex==null || user.sex==1 ? "checked" : ""}>男 &nbsp;&nbsp;&nbsp;&nbsp;<input name="user.sex" value="0" type="radio" ${user.sex!=null&&user.sex==0 ? "checked" : ""}>女</h3>
+	<h3>状态：<input name="user.status" value="1" type="radio" ${user.status==null || user.status==1 ? "checked" : ""}>有效 &nbsp;&nbsp;&nbsp;&nbsp;<input name="user.status" value="0" type="radio" ${user.sex!=null&&user.status==0 ? "checked" : ""}>无效</h3>
+	<h3><input type="submit" value="保存"><input type="reset" value="重置"></h3>
+</form>
+

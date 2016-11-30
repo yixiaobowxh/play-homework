@@ -1,0 +1,8 @@
+@(Integer value, @Default(new String[]{"有效", "无效"})String[] showValues, @Default("")String nullShowValue)
+@if(value==null) {
+	${nullShowValue}
+@}else if(value==0) {
+<span class="red">${showValues[1]}</span>
+@} else {
+<span class="blue">${showValues[0]}</span>
+@}

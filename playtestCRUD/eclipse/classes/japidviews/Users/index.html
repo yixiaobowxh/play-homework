@@ -1,0 +1,27 @@
+@extends main
+@(Object arg1) 
+
+@set title:"index" 
+
+@set css 
+@
+@set js 
+@
+@(List<User> users)
+
+<a href="@{Logins.logout()}">注销</a>
+<h2>用户管理</h2>
+<form  action="@{index()}">
+模糊查询<input name="likerStr" value="${flash.get("str")}" ><input  type="submit" value="查询">
+
+</form>
+<a href="@{form()}">新增</a>
+<a href="@{User2s.index()}">分页管理</a>
+<br><br>
+<table border=1>
+<tr><td>主键</td><td>账号</td><td>姓名</td><td>生日</td><td>性别</td><td>状态</td><td>账操作</td>
+    @for(User u : users){
+     <tr><td>${u.id}</td><td>${u.acc}</td><td>${u.name}</td><td>${u.birthday}</td><td>${u.sex==1 ? "男" : "女"}</td><td>${u.status==1 ? "有效" : "无效"}</td><td><a href="@{form(u.id)}">修改</a> <a href="@{delete(u.id)}">删除</a></td></tr>
+     @}
+</tr>
+</table>

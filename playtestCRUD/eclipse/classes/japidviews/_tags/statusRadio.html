@@ -1,0 +1,14 @@
+@(String name, Integer value, @Default(new String[]{"有效", "无效"})String[] showValues, @Default("状态")String fieldName)
+<div class="control-group">
+    <label class="control-label" >@t red@${fieldName}:</label>
+    <div class="controls">
+    	<div class="input-prepend input-append">
+    		<label class="checkbox control-inline">
+                <input type="radio" name="${name}" value="1" @if(value==null || value==1){@ checked="true" @}@><span class="blue"> ${showValues[0]}</span>
+            </label>
+            <label class="checkbox control-inline">
+                <input type="radio" name="${name}" value="0"  @if(value!=null && value==0){@ checked="true" @}@><span class="red"> ${showValues[1]}</span>
+            </label>
+        </div>
+    </div>
+</div>

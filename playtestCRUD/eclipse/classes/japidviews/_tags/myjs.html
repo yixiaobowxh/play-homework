@@ -1,0 +1,16 @@
+@ import play.utils.StrUtils
+@(
+	String jsPath,
+	String others
+)
+@jsPath = jsPath.replace("japidviews", "").replace(".html", ".js");
+<script src="${_play.ctxPath}/public/javascripts${jsPath}"></script>
+@if(!StrUtils.isEmpty(others)) {
+@	String[] oarr = StrUtils.splitc(others, ",");
+@	String[] parr = StrUtils.splitc(jsPath, "/");
+@	for(String o : oarr) {
+@		parr[parr.length-1] = o + ".js";
+@		String opath = StrUtils.join(parr, "/");
+		<script src="${_play.ctxPath}/public/javascripts${opath}"></script>
+@	}
+@} 

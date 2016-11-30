@@ -1,0 +1,18 @@
+@extends main
+@(Object arg1) 
+
+@set title:"index" 
+
+@set css 
+@
+@set js 
+@
+<center>
+    <h2 style="color:red;">${flash.get("loginErr")}</h2>
+    <h2>用户登录</h2>
+    <form action="@{Logins.loginCheck()}">
+    <h3>账号：<input name="acc" value="${flash.get("tempAcc")}"></h3>
+    <h3>密码：<input name="pwd" type="password"></h3>
+    <h3><input type="submit"></h3>
+    </form>
+</center>
